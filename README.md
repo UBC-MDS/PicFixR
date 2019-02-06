@@ -28,6 +28,6 @@ How this project fit into the Python and R ecosystems
 
 #### R ecosystem
 
-`magick` package in R offers an overwhelming amount of functionality, we want to offer a light-weight, extremely easy to use alternative to the magick package in R, allow users to quickly touch up and enhance their images without defaulting to these cumbersome library.
+[magick](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) package in R offers an overwhelming amount of functionality, we want to offer a light-weight, extremely easy to use alternative to the magick package in R, allow users to quickly touch up and enhance their images without defaulting to these cumbersome library.
 
 
