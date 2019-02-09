@@ -1,3 +1,5 @@
+library(png)
+library(jpeg)
 library(testthat)
 
 #' Contrast
@@ -11,6 +13,6 @@ library(testthat)
 #'
 #' @examples
 
-contrast <- function(input_img, intensity, output_img){
+contrast <- function(input_img, intensity=5, output_img){
 
 }

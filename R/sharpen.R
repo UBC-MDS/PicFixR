@@ -1,3 +1,5 @@
+library(png)
+library(jpeg)
 library(testthat)
 
 #' Sharpen
@@ -11,6 +13,6 @@ library(testthat)
 #'
 #' @examples
 
-sharpen <- function(input_img, intensity, output_img){
+sharpen <- function(input_img, intensity=5, output_img){
 
 }

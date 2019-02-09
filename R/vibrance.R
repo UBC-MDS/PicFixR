@@ -1,3 +1,5 @@
+library(png)
+library(jpeg)
 library(testthat)
 
 #' Vibrance
@@ -11,6 +13,6 @@ library(testthat)
 #'
 #' @examples
 
-vibrance <- function(input_img, intensity, output_img){
+vibrance <- function(input_img, intensity=5, output_img){
 
 }
