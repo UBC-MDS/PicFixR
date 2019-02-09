@@ -4,7 +4,7 @@
 \alias{contrast}
 \title{Contrast}
 \usage{
-contrast(input_img, intensity, output_img)
+contrast(input_img, intensity = 5, output_img)
 }
 \arguments{
 \item{output_img}{}

@@ -4,7 +4,7 @@
 \alias{sharpen}
 \title{Sharpen}
 \usage{
-sharpen(input_img, intensity, output_img)
+sharpen(input_img, intensity = 5, output_img)
 }
 \arguments{
 \item{output_img}{}

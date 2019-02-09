@@ -1,5 +1,4 @@
 library(png)
-library(jpeg)
 library(testthat)
 
 #' Vibrance

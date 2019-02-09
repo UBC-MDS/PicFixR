@@ -4,7 +4,7 @@
 \alias{vibrance}
 \title{Vibrance}
 \usage{
-vibrance(input_img, intensity, output_img)
+vibrance(input_img, intensity = 5, output_img)
 }
 \arguments{
 \item{output_img}{}
