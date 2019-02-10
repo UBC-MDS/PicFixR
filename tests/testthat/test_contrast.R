@@ -18,14 +18,14 @@ writePNG(test_img1, "test_img/contrast/test_img1.png")
 # generate expected output image when intensity is 5
 
 expected_img1 <- array(c(c(2, 44, 60,
-                           2, 33, 22, # R channel
+                           4, 33, 22, # R channel
                            2, 65, 33),
-                         c(22, 44, 70,
+                         c(33, 44, 70,
                            22, 55, 56, # G channel
-                           22, 77, 45),
-                         c(222, 32, 80,
-                           222, 63, 70, # B channel
-                           222, 43, 22)),
+                           42, 77, 45),
+                         c(143, 32, 80,
+                           33, 63, 70, # B channel
+                           24, 43, 22)),
                        dim = c(3, 3, 3))
 
 writePNG(test_img1, "test_img/contrast/expected_img1.png")
