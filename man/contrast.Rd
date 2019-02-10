@@ -7,8 +7,18 @@
 contrast(input_img, intensity = 5, output_img)
 }
 \arguments{
-\item{output_img}{}
+input_img - path to load .png image {string}
+intensity - desired contrast intensity [0,10] {integer}
+output_img - path to save .png image with adjusted contrast {string}
+}
+\item{output_img}{
+string path of output image
 }
 \description{
-Contrast
+Created on February 9, 2019
+Author: George J. J. Wu
+Contrast, make dark pixels much darker, and bright pixels slightly darker, returns a .png image.
+}
+\example{
+contrast("../img/image.png", 2, "../img/contrast_image.png")
 }

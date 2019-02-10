@@ -7,8 +7,18 @@
 vibrance(input_img, intensity = 5, output_img)
 }
 \arguments{
-\item{output_img}{}
+input_img - path to load .png image {string}  
+intensity - desired vibrance intensity [0,10] {integer} 
+output_img - path to save .png image with adjusted vibrance {string}
+}
+\item{output_img}{
+string path of output image
 }
 \description{
-Vibrance
+Created on February 9, 2019
+Author: Miliban Keyim
+Increase or decrease the vibrance of an .png image, given the intensity specificication
+}
+\examples{
+vibrance("../img/image.png", 5, "../img/vibrance_image.png")
 }

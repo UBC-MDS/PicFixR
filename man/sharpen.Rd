@@ -2,13 +2,23 @@
 % Please edit documentation in R/sharpen.R
 \name{sharpen}
 \alias{sharpen}
-\title{Sharpen}
+\title{sharpen}
 \usage{
 sharpen(input_img, intensity = 5, output_img)
 }
 \arguments{
-\item{output_img}{}
+input_img - path to load .png image {string}  
+intensity - desired sharpen intensity [0,10] {integer}
+output_img - path to save sharpened .png image {string}
+}
+\item{output_img}{
+string path of output image
 }
 \description{
-Sharpen
+Created on February 9, 2019
+Author: Mani Kohli
+Sharpens an .png image, given the intensity specificication
+}
+\examples{
+sharpen("../img/image.png", 2, "../img/sharpened_image.png")
 }
