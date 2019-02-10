@@ -4,21 +4,21 @@
 \alias{contrast}
 \title{Contrast}
 \usage{
-contrast(input_img, intensity, output_img)
+contrast(input_img, intensity = 5, output_img)
 }
 \arguments{
-input_img - path to load .png image {string}
-intensity - desired contrast intensity [0,10] {integer}
-output_img - path to save .png image with adjusted contrast {string}
+\item{input_img}{string, path of the input .png image}
+
+\item{intensity}{int, intensity of contrast enhancement, between 0 and 10, defaults to 5}
+
+\item{output_img}{string, path of the output .png image}
 }
-\item{output_img}{
-string path of output image
+\value{
+a png image at the specificed out path
 }
 \description{
-Created on February 9, 2019
-Author: George J. J. Wu
-Contrast, make dark pixels much darker, and bright pixels slightly darker, returns a .png image.
+Contrast
 }
-\example{
-contrast("../img/image.png", 2, "../img/contrast_image.png")
+\examples{
+contrast("./input.png", 5, "./output.png")
 }

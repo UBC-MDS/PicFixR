@@ -4,21 +4,21 @@
 \alias{vibrance}
 \title{Vibrance}
 \usage{
-vibrance(input_img, intensity, output_img)
+vibrance(input_img, intensity = 5, output_img)
 }
 \arguments{
-input_img - path to load .png image {string}  
-intensity - desired vibrance intensity [0,10] {integer} 
-output_img - path to save .png image with adjusted vibrance {string}
+\item{input_img}{string, path of the input .png image}
+
+\item{intensity}{int, intensity of vibrance enhancement, between 0 and 10, defaults to 5}
+
+\item{output_img}{string, path of the output .png image}
 }
-\item{output_img}{
-string path of output image
+\value{
+a png image at the specificed out path
 }
 \description{
-Created on February 9, 2019
-Author: Miliban Keyim
-Increase or decrease the vibrance of an .png image, given the intensity specificication
+Vibrance
 }
 \examples{
-vibrance("../img/image.png", 5, "../img/vibrance_image.png")
+vibrance("./input.png", 5, "./output.png")
 }

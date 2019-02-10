@@ -1,17 +1,17 @@
 library(png)
-library(jpeg)
 library(testthat)
 
 #' Sharpen
 #'
-#' @param input_img
-#' @param intensity
-#' @param output_img
+#' @param input_img string, path of the input .png image
+#' @param intensity int, intensity of sharpness enhancement, between 0 and 10, defaults to 5
+#' @param output_img string, path of the output .png image
 #'
-#' @return
+#' @return a png image at the specificed out path
 #' @export
 #'
 #' @examples
+#' sharpen("./input.png", 5, "./output.png")
 
 sharpen <- function(input_img, intensity=5, output_img){
 
