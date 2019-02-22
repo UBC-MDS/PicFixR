@@ -1,5 +1,4 @@
 library(png)
-library(testthat)
 
 #' Contrast
 #'

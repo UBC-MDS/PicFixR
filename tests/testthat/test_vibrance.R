@@ -33,53 +33,53 @@ writePNG(test_img1, "test_img/vibrance/expected_img1.png")
 # test for implementation correctness
 
 test_that("Return identical image if intensity is 0", {
-  
+
   vibrance("test_img/vibrance/test_img1.png", 0, "test_img/vibrance/vibrance.png")
   output_img <- readPNG("test_img/vibrance/vibrance.png")
   expect_equal(output_img, test_img1, tolarance = 1e-5)
-  
+
 })
 
 test_that("vibrance of image is correctly enhanced", {
-  
+
   vibrance("test_img/vibrance/test_img1.png", 5, "test_img/vibrance/vibrance.png")
   output_img <- readPNG("test_img/vibrance/vibrance.png")
   expect_equal(output_img, expected_img1, tolarance = 1e-5)
-  
+
 })
 
 # test for exception handling
 
 test_that("Input/output image path should be a string", {
-  
+
   expect_error(vibrance(888, 5, "test_img/vibrance/vibrance.png"))
   expect_error(vibrance("test_img/vibrance/test_img1.png", 5, 888))
-  
+
 })
 
 test_that("Intensity should be an integer between 0 and 10", {
-  
+
   expect_error(vibrance("test_img/vibrance/test_img1.png", -2, "test_img/vibrance/vibrance.png"))
   expect_error(vibrance("test_img/vibrance/test_img1.png", 3.5, "test_img/vibrance/vibrance.png"))
   expect_error(vibrance("test_img/vibrance/test_img1.png", 12, "test_img/vibrance/vibrance.png"))
-  
+
 })
 
 test_that("Input/output should be an image", {
-  
+
   expect_error(vibrance("test_img/vibrance/test_img1.R", 5, "test_img/vibrance/vibrance.png"))
   expect_error(vibrance("test_img/vibrance/test_img1.png", 5, "test_img/vibrance/vibrance.pdf"))
-  
+
 })
 
 test_that("Input image should exist", {
-  
+
   expect_error(vibrance("test_img/ffxiv/chocobo.png", 5, "test_img/vibrance/vibrance.pdf"))
-  
+
 })
 
 test_that("Output image path should be valid", {
-  
-  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, "\,,/(^_^)\,,/"))
-  
+
+  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, "yolo"))
+
 })

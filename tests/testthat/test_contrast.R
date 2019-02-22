@@ -80,6 +80,6 @@ test_that("Input image should exist", {
 
 test_that("Output image path should be valid", {
 
-  expect_error(contrast("test_img/contrast/test_img1.png", 5, "\,,/(^_^)\,,/"))
+  expect_error(contrast("test_img/contrast/test_img1.png", 5, "yolo"))
 
 })
