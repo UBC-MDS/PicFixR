@@ -17,7 +17,7 @@ Image enhancement is typically done with a full-scale editing software such as A
 3\. Install this package by running the following command at your R console.
 
 ```
-devtools:: install_github("UBC-MDS/picfixR)
+devtools:: install_github("UBC-MDS/picfixR")
 ```
 
 ### To use
@@ -29,19 +29,19 @@ library(picfixR)
 #### sharpen(): enhance the sharpness of your image
 
 ```
-sharpen('input.png', 5, FALSE, 'sharpen_output.png')
+sharpen("input.png", 5, FALSE, "sharpen_output.png")
 ```
 
 #### contrast(): enhance the contrast of your image
 
 ```
-contrast('input.png', 5, FALSE, 'contrast_output.png')
+contrast("input.png", 5, FALSE, "contrast_output.png")
 ```
 
 #### vibrance(): enhance the colour vibrance of your image  
 
 ```
-vibrance('input.png', 5, FALSE, 'vibrance_output.png')
+vibrance("input.png", 5, FALSE, "vibrance_output.png")
 ```
 
 ### Supported image types
