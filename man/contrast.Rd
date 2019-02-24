@@ -2,23 +2,28 @@
 % Please edit documentation in R/contrast.R
 \name{contrast}
 \alias{contrast}
-\title{Contrast}
+\title{Adjust contrast of image}
 \usage{
-contrast(input_img, intensity = 5, output_img)
+contrast(input_img, intensity = 5, display = F, output_img = "")
 }
 \arguments{
-\item{input_img}{string, path of the input .png image}
+\item{input_img}{string, path of the input image}
 
 \item{intensity}{int, intensity of contrast enhancement, between 0 and 10, defaults to 5}
 
-\item{output_img}{string, path of the output .png image}
+\item{display}{bool, if TRUE, output will be displayed. Defaults to FALSE.}
+
+\item{output_img}{string, path of the output image}
 }
 \value{
-a png image at the specificed out path
+an image at the specificed output path
 }
 \description{
-Contrast
+Adjust the contrast of an image, given the intensity specification.
+Works by making dark pixels much darker, and light pixels only slighly darker.
 }
 \examples{
-contrast("./input.png", 5, "./output.png")
+\dontrun{
+contrast("./input.png", 5, FALSE, "./output.png")
+}
 }
