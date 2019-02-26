@@ -1,7 +1,5 @@
 context("Sharpen an image")
 
-context("Adjust sharpen of an image")
-
 # generate input image
 
 test_img1 <- array(c(c(4, 44, 60,
@@ -82,6 +80,6 @@ test_that("Input image should exist", {
 
 test_that("Output image path should be valid", {
 
-  expect_error(sharpen("test_img/sharpen/test_img1.png", 5, "\,,/(^_^)\,,/"))
+  expect_error(sharpen("test_img/sharpen/test_img1.png", 5, "yolo"))
 
 })

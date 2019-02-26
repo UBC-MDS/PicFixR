@@ -5,13 +5,13 @@ Authors@R: as.person(c(
   "George Wu <georgewujia@gmail.com> [aut, cre]",
   "Miliban Keyim <milibankeyim@gmail.com> [aut]",
   "Mani Kohli <mskcan@gmail.com> [aut]"))
-Description: This package allows users to quickly enhance images in an integrated development environment (IDE) (e.g. Jupyter notebook, RStudio) without powering up an image editing software. Users can quickly adjust the sharpness, contrast, and vibrance of .png images, by simply calling the corresponding functions.
+Description: Allows users to quickly enhance images in an integrated development environment (IDE) (e.g. Jupyter notebook, RStudio) without powering up an image editing software. Users can quickly adjust the sharpness, contrast, and vibrance of .png images, by simply calling the corresponding functions.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-Suggests: 
+Suggests:
     testthat
 Imports: 
     png,
-    jpeg
+    testit
