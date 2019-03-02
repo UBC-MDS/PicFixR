@@ -4,7 +4,7 @@
 \alias{vibrance}
 \title{Vibrance}
 \usage{
-vibrance(input_img, intensity = 5, output_img)
+vibrance(input_img, intensity = 5, display = F, output_img = "")
 }
 \arguments{
 \item{input_img}{string, path of the input .png image}

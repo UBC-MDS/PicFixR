@@ -1,5 +1,5 @@
 library(png)
-
+library(plotwidgets)
 
 #' Vibrance
 #'
@@ -15,7 +15,7 @@ library(png)
 vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
   # exception handling
-  # note that other eceptions are already handled by the PNG library functions readPNG and writePNG
+  # note that other exceptions are already handled by the PNG library functions readPNG and writePNG
   testit::assert("Please provide a valid string for the input image path.", is.character(input_img))
   testit::assert("Please provide a valid string for the output image path.", is.character(output_img))
   testit::assert("Please provide an intensity value between 0 and 10.", intensity <= 10 & intensity >= -10)
@@ -45,10 +45,10 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
       hsl <- rgb2hsl(mat)
 
-      hsl[2] = hsl[2] * (1 + 5/10)
+      hsl[2] = hsl[2] * (1 + intensity/10)
 
       if (hsl[2] > 1.0) {
-        hsl[2] = 9.0
+        hsl[2] = 0.9
       } else if(hsl[2] < 0.0) {
         hsl[2] = 0.0
       } else {

@@ -13,22 +13,21 @@ test_img1 <- array(c(c(4, 44, 60,
                        66, 43, 22)),
                    dim = c(3, 3, 3))
 
-writePNG(test_img1, "test_img/vibrance/test_img1.png")
+writePNG(test_img1 / 255, "test_img/vibrance/test_img1.png")
 
 # generate expected output image when intensity is 5
 
-expected_img1 <- array(c(c(10, 44, 60,
-                           45, 33, 22, # R channel
-                           45, 65, 33),
-                         c(35, 44, 70,
-                           77, 55, 56, # G channel
-                           32, 77, 45),
-                         c(146, 32, 80,
-                           222, 63, 70, # B channel
-                           54, 43, 22)),
+expected_img1 <- array(c(c(14, 15, 5,
+                           14, 15, 5, # R channel
+                           14, 15, 5),
+                         c(62, 62, 98,
+                           62, 62, 98, # G channel
+                           62, 62, 98),
+                         c(242, 242, 7,
+                           242, 242, 7, # B channel
+                           242, 242, 7)),
                        dim = c(3, 3, 3))
 
-writePNG(test_img1, "test_img/vibrance/expected_img1.png")
 
 # test for implementation correctness
 
