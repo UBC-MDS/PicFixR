@@ -25,4 +25,55 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
   # scale pixel values from [0, 1] back to [0, 255]
   img <- img * 255
+
+  #getting dimensions
+  height <- dim(img)[1]
+  width <- dim(img)[2]
+
+  #empty_array for output
+  enhanced_img <- array(dim = dim(img))
+
+
+  #nested loop - can we make this more effecient?
+  for (i in 1:height) {
+    for (j in 1:width) {
+      R <- img[i,j,1]
+      G <- img[i,j,2]
+      B <- img[i,j,3]
+
+      mat <- matrix(c(R,G,B))
+
+      hsl <- rgb2hsl(mat)
+
+      hsl[2] = hsl[2] * (1 + 5/10)
+
+      if (hsl[2] > 1.0) {
+        hsl[2] = 9.0
+      } else if(hsl[2] < 0.0) {
+        hsl[2] = 0.0
+      } else {
+        hsl[2] = hsl[2]
+      }
+
+      rbg <- hsl2rgb(hsl)
+
+      enhanced_img[i,j,1] = rbg[1]
+      enhanced_img[i,j,2] = rbg[2]
+      enhanced_img[i,j,3] = rbg[3]
+
+    }
+  }
+
+  enhanced_img <- enhanced_img / 255
+
+  # display or save enhanced image
+  if (display == TRUE) {
+    graphics::plot.new()
+    graphics::rasterImage(enhanced_img, 0, 0, 1, 1)
+  }
+
+  if (output_img != "") {
+    png::writePNG(enhanced_img, output_img)
+  }
+
 }
