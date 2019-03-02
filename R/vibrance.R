@@ -4,8 +4,9 @@ library(plotwidgets)
 #' Vibrance
 #'
 #' @param input_img string, path of the input .png image
-#' @param intensity int, intensity of vibrance enhancement, between 0 and 10, defaults to 5
+#' @param intensity int, intensity of vibrance enhancement, between -10 and 10, defaults to 5
 #' @param output_img string, path of the output .png image
+#' @param display bool, if TRUE, output will be displayed. Defaults to FALSE.
 #'
 #' @return a png image at the specificed out path
 #' @export
