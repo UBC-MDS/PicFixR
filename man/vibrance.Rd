@@ -20,5 +20,7 @@ a png image at the specificed out path
 Vibrance
 }
 \examples{
-vibrance("./input.png", 5, "./output.png")
+\dontrun{
+vibrance("./input.png", 5, FALSE, "./output.png")
+}
 }

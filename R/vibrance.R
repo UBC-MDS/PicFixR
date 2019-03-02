@@ -11,7 +11,9 @@ library(plotwidgets)
 #' @export
 #'
 #' @examples
-#' vibrance("./input.png", 5, "./output.png")
+#' \dontrun{
+#' vibrance("./input.png", 5, FALSE, "./output.png")
+#' }
 vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
   # exception handling
@@ -43,7 +45,7 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
       mat <- matrix(c(R,G,B))
 
-      hsl <- rgb2hsl(mat)
+      hsl <- plotwidgets::rgb2hsl(mat)
 
       hsl[2] = hsl[2] * (1 + intensity/10)
 
@@ -55,7 +57,7 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
         hsl[2] = hsl[2]
       }
 
-      rbg <- hsl2rgb(hsl)
+      rbg <- plotwidgets::hsl2rgb(hsl)
 
       enhanced_img[i,j,1] = rbg[1]
       enhanced_img[i,j,2] = rbg[2]

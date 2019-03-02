@@ -2,83 +2,96 @@ context("Adjust vibrance/saturation of an image")
 
 # generate input image
 
-test_img1 <- array(c(c(4, 44, 60,
-                       6, 33, 22, # R channel
-                       4, 65, 33),
-                     c(77, 44, 70,
-                       66, 55, 56, # G channel
-                       55, 77, 45),
-                     c(245, 32, 80,
-                       43, 63, 70, # B channel
-                       66, 43, 22)),
+test_img1 <- array(c(c(1, 1, 1,
+                       2, 2, 2, # R channel
+                       3, 3, 3),
+                     c(55, 55, 55,
+                       55, 55, 55, # G channel
+                       100, 100, 100),
+                     c(255, 255, 255,
+                       255, 255, 255, # B channel
+                       5, 5, 5)),
                    dim = c(3, 3, 3))
 
 writePNG(test_img1 / 255, "test_img/vibrance/test_img1.png")
 
 # generate expected output image when intensity is 5
 
-expected_img1 <- array(c(c(14, 15, 5,
-                           14, 15, 5, # R channel
-                           14, 15, 5),
-                         c(62, 62, 98,
-                           62, 62, 98, # G channel
-                           62, 62, 98),
-                         c(242, 242, 7,
-                           242, 242, 7, # B channel
-                           242, 242, 7)),
+expected_img1 <- array(c(c(14, 14, 14,
+                           15, 15, 15, # R channel
+                           5, 5, 5),
+                         c(62, 62, 62,
+                           62, 62, 62, # G channel
+                           98, 98, 98),
+                         c(242, 242, 242,
+                           242, 242, 242, # B channel
+                           7, 7, 7)),
+                       dim = c(3, 3, 3))
+
+#expected greyscale image with -10 intensity in vibrance()
+expected_img2 <- array(c(c(128, 128, 128,
+                           128, 128, 128, # R channel
+                           52, 52, 52),
+                         c(128, 128, 128,
+                           128, 128, 128, # G channel
+                           52, 52, 52),
+                         c(128, 128, 128,
+                           128, 128, 128, # B channel
+                           52, 52, 52)),
                        dim = c(3, 3, 3))
 
 
-# test for implementation correctness
-
-test_that("Return identical image if intensity is 0", {
-
-  vibrance("test_img/vibrance/test_img1.png", 0, "test_img/vibrance/vibrance.png")
-  output_img <- readPNG("test_img/vibrance/vibrance.png")
-  expect_equal(output_img, test_img1, tolarance = 1e-5)
-
-})
+# test for correct vibrance
 
 test_that("vibrance of image is correctly enhanced", {
 
-  vibrance("test_img/vibrance/test_img1.png", 5, "test_img/vibrance/vibrance.png")
-  output_img <- readPNG("test_img/vibrance/vibrance.png")
-  expect_equal(output_img, expected_img1, tolarance = 1e-5)
+  vibrance("test_img/vibrance/test_img1.png", 5, F, "test_img/vibrance/vibrance.png")
+  output_img <- readPNG("test_img/vibrance/vibrance.png") * 255
+  expect_equal(expected_img1, output_img, tolerance = 1e-5)
+
+})
+
+# test for greyscale vibrance with intensity set to -10
+
+test_that("vibrance of image is correctly enhanced", {
+
+  vibrance("test_img/vibrance/test_img1.png", -10, F, "test_img/vibrance/vibrance.png")
+  output_img <- readPNG("test_img/vibrance/vibrance.png") * 255
+  expect_equal(expected_img2, output_img, tolerance = 1e-5)
 
 })
 
 # test for exception handling
 
-test_that("Input/output image path should be a string", {
+test_that("Input image path should be a string", {
 
-  expect_error(vibrance(888, 5, "test_img/vibrance/vibrance.png"))
-  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, 888))
-
-})
-
-test_that("Intensity should be an integer between 0 and 10", {
-
-  expect_error(vibrance("test_img/vibrance/test_img1.png", -2, "test_img/vibrance/vibrance.png"))
-  expect_error(vibrance("test_img/vibrance/test_img1.png", 3.5, "test_img/vibrance/vibrance.png"))
-  expect_error(vibrance("test_img/vibrance/test_img1.png", 12, "test_img/vibrance/vibrance.png"))
+  expect_error(vibrance(888, 5, F, "test_img/vibrance/vibrance.png"))
+  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, F, 888))
 
 })
 
-test_that("Input/output should be an image", {
+test_that("Intensity should be between 0 and 10", {
 
-  expect_error(vibrance("test_img/vibrance/test_img1.R", 5, "test_img/vibrance/vibrance.png"))
-  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, "test_img/vibrance/vibrance.pdf"))
+  expect_error(vibrance("test_img/vibrance/test_img1.png", -12, F, "test_img/vibrance/vibrance.png"))
+  expect_error(vibrance("test_img/vibrance/test_img1.png", 12, F, "test_img/vibrance/vibrance.png"))
+
+})
+
+test_that("Input should be an image", {
+
+  expect_error(vibrance("test_img/vibrance/test_img1.R", 5, F, "test_img/vibrance/vibrance.png"))
 
 })
 
 test_that("Input image should exist", {
 
-  expect_error(vibrance("test_img/ffxiv/chocobo.png", 5, "test_img/vibrance/vibrance.pdf"))
+  expect_error(vibrance("test_img/ffxiv/chocobo.png", 5, F, "test_img/vibrance/vibrance.pdf"))
 
 })
 
 test_that("Output image path should be valid", {
 
-  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, "yolo"))
+  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, F, "yolo/namazu/dailies.png"))
 
 })
+
