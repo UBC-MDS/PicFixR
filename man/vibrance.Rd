@@ -4,12 +4,14 @@
 \alias{vibrance}
 \title{Vibrance}
 \usage{
-vibrance(input_img, intensity = 5, output_img)
+vibrance(input_img, intensity = 5, display = F, output_img = "")
 }
 \arguments{
 \item{input_img}{string, path of the input .png image}
 
-\item{intensity}{int, intensity of vibrance enhancement, between 0 and 10, defaults to 5}
+\item{intensity}{int, intensity of vibrance enhancement, between -10 and 10, defaults to 5}
+
+\item{display}{bool, if TRUE, output will be displayed. Defaults to FALSE.}
 
 \item{output_img}{string, path of the output .png image}
 }
@@ -20,5 +22,7 @@ a png image at the specificed out path
 Vibrance
 }
 \examples{
-vibrance("./input.png", 5, "./output.png")
+\dontrun{
+vibrance("./input.png", 5, FALSE, "./output.png")
+}
 }
