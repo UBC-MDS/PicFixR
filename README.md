@@ -100,6 +100,8 @@ Raw image | After enhancements
 
 ![coverage](/tests/testthat/test_img/coverage.png)
 
+![cmd_check](/tests/testthat/test_img/cmd_check.png)
+
 #### Fitting into the R ecosystem
 
 [magick](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) provides R with a comprehensive package with an overwhelming amount of functionality for complex image processing. However, even for basic image enhancements, users typically still have to dig into a substantial amount of documentation and implementation details. This project offers a simple alternative, allowing users to have the ability to enhance images quickly during prototyping without the overhead of heavy library resources.
