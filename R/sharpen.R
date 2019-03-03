@@ -24,7 +24,7 @@ library(testit)
 #' @examples
 #' sharpen("./input.png", 5, "./output.png")
 
-sharpen <- function(input_img, intensity=5, output_img){
+sharpen <- function(input_img, intensity=5, display=F, output_img=""){
 
   # exception handling
   # note that other eceptions are already handled by the PNG library functions readPNG and writePNG
