@@ -2,13 +2,13 @@
 
 #### A DSCI-524 collaborative software development project    
   
-#### Project Overview
+## Project Overview
 
 Image enhancement is typically done with a full-scale editing software such as Adobe Photoshop or GIMP, but what if we just want to quickly touch up an image during prototyping in a programming environment? 
 
 `picfixR` allows users to quickly enhance images in an integrated development environment (IDE) (e.g. Jupyter notebook, RStudio) without powering up an image editing software. Users can quickly adjust the sharpness, contrast, and vibrance of .png images, by simply calling the corresponding functions. This package currently offers three essential image enhancement functions, and we hope to implement additional features in the near future. 
 
-### To install
+## To install
  
 1\. Please ensure you have the `devtools` package already installed. If not, you can install `devtools` by running `install.packages("devtools")` at your R console.
 
@@ -20,7 +20,7 @@ Image enhancement is typically done with a full-scale editing software such as A
 devtools:: install_github("UBC-MDS/picfixR")
 ```
 
-### To use
+## To use
 
 ```
 library(picfixR)
@@ -39,7 +39,7 @@ Arguments:
 - display: print image to console if `TRUE`, defaults to `FALSE`.
 - output_img: path to save the output image
 
-| Before | After |
+| Before | After sharpening |
 | -- | -- |
 | ![](/tests/testthat/test_img/cat.png) | ![](/tests/testthat/test_img/sharpen/cat_sharpen.png) |
 
@@ -56,7 +56,7 @@ Arguments:
 - display: print image to console if `TRUE`, defaults to `FALSE`.
 - output_img: path to save the output image
 
-Before | After
+| Before | After vibrance adjustments |
 | -- | -- |
 | ![](/tests/testthat/test_img/sharpen/cat_sharpen.png) | ![](/tests/testthat/test_img/vibrance/cat_vibrance.png) |
 
@@ -73,38 +73,38 @@ Arguments:
 - display: print image to console if `TRUE`, defaults to `FALSE`.
 - output_img: path to save the output image
 
-Before | After
+| Before | After contrast adjustment | 
 | -- | -- |
 | ![](/tests/testthat/test_img/vibrance/cat_vibrance.png) | ![](/tests/testthat/test_img/contrast/cat_contrast.png) |
 
 #### Overall results
 
-Raw image | After enhancements
+| Raw image | After enhancements |
 | -- | -- |
 | ![](/tests/testthat/test_img/cat.png) | ![](/tests/testthat/test_img/contrast/cat_contrast.png) |
 
-### Supported image types
+## Supported image types
 
 - .png
 
-### Dependencies
+## Dependencies
 
 - png
 - testit
 - plotwidgets
 - mmand
 
-### Tests and test coverage
+## Tests and test coverage
 
 ![tests](/tests/testthat/test_img/tests.png)
 
 ![coverage](/tests/testthat/test_img/coverage.png)
 
-#### Fitting into the R ecosystem
+## Fitting into the R ecosystem
 
 [magick](https://cran.r-project.org/web/packages/magick/vignettes/intro.html) provides R with a comprehensive package with an overwhelming amount of functionality for complex image processing. However, even for basic image enhancements, users typically still have to dig into a substantial amount of documentation and implementation details. This project offers a simple alternative, allowing users to have the ability to enhance images quickly during prototyping without the overhead of heavy library resources.
 
-### Team Members
+## Team Members
 
 | Name                | Github handle |
 | ------------------- | ------------------- |
