@@ -5,6 +5,7 @@
 
 library(EBImage)
 library(png)
+library(testit)
 
 #' Sharpen
 #'
