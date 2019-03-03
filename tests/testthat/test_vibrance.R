@@ -40,7 +40,6 @@ expected_img2 <- array(c(c(128, 128, 128,
                            52, 52, 52)),
                        dim = c(3, 3, 3))
 
-
 # test for correct vibrance
 
 test_that("vibrance of image is correctly enhanced", {
@@ -87,6 +86,10 @@ test_that("Input image should exist", {
 
   expect_error(vibrance("test_img/ffxiv/chocobo.png", 5, F, "test_img/vibrance/vibrance.pdf"))
 
+})
+
+test_that("Image should be displayed without errors", {
+  expect_error(vibrance("test_img/vibrance/test_img1.png", 5, T), NA)
 })
 
 test_that("Output image path should be valid", {

@@ -29,20 +29,59 @@ library(picfixR)
 #### sharpen(): enhance the sharpness of your image
 
 ```
-sharpen("input.png", 5, FALSE, "sharpen_output.png")
+sharpen("cat.png", 8, F, "sharpen/cat_sharpen.png")
 ```
 
-#### contrast(): enhance the contrast of your image
+Arguments:
 
-```
-contrast("input.png", 5, FALSE, "contrast_output.png")
-```
+- input_img: path to an input image
+- intensity: level of sharpness adjustment, between 0 and 10, defaults to 5.
+- display: print image to console if `TRUE`, defaults to `FALSE`.
+- output_img: path to save the output image
+
+| Before | After |
+| -- | -- |
+| ![](/tests/testthat/test_img/cat.png) | ![](/tests/testthat/test_img/sharpen/cat_sharpen.png) |
 
 #### vibrance(): enhance the colour vibrance of your image  
 
 ```
-vibrance("input.png", 5, FALSE, "vibrance_output.png")
+vibrance("sharpen/cat_sharpen.png", 10, F, "vibrance/cat_vibrance.png")
 ```
+
+Arguments:
+
+- input_img: path to an input image
+- intensity: level of vibrance adjustment, between -10 and 10, defaults to 5.
+- display: print image to console if `TRUE`, defaults to `FALSE`.
+- output_img: path to save the output image
+
+Before | After
+| -- | -- |
+| ![](/tests/testthat/test_img/sharpen/cat_sharpen.png) | ![](/tests/testthat/test_img/vibrance/cat_vibrance.png) |
+
+#### contrast(): enhance the contrast of your image
+
+```
+contrast("vibrance/cat_vibrance.png", 1.5, F, "contrast/cat_contrast.png")
+```
+
+Arguments:
+
+- input_img: path to an input image
+- intensity: level of contrast enhancement, between 0 and 10, defaults to 5.
+- display: print image to console if `TRUE`, defaults to `FALSE`.
+- output_img: path to save the output image
+
+Before | After
+| -- | -- |
+| ![](/tests/testthat/test_img/vibrance/cat_vibrance.png) | ![](/tests/testthat/test_img/contrast/cat_contrast.png) |
+
+#### Overall results
+
+Raw image | After enhancements
+| -- | -- |
+| ![](/tests/testthat/test_img/cat.png) | ![](/tests/testthat/test_img/contrast/cat_contrast.png) |
 
 ### Supported image types
 
@@ -52,6 +91,14 @@ vibrance("input.png", 5, FALSE, "vibrance_output.png")
 
 - png
 - testit
+- plotwidgets
+- mmand
+
+### Tests and test coverage
+
+![tests](/tests/testthat/test_img/tests.png)
+
+![coverage](/tests/testthat/test_img/coverage.png)
 
 #### Fitting into the R ecosystem
 

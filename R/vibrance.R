@@ -52,8 +52,6 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
       if (hsl[2] > 1.0) {
         hsl[2] = 0.9
-      } else if(hsl[2] < 0.0) {
-        hsl[2] = 0.0
       } else {
         hsl[2] = hsl[2]
       }

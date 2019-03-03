@@ -74,6 +74,10 @@ test_that("Input image should exist", {
 
 })
 
+test_that("Image should be displayed without errors", {
+  expect_error(contrast("test_img/contrast/test_img1.png", 5, T), NA)
+})
+
 test_that("Output image path should be valid", {
 
   expect_error(contrast("test_img/contrast/test_img1.png", 5, F, "yolo/namazu/dailies.png"))
