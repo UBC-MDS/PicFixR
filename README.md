@@ -56,7 +56,7 @@ Arguments:
 - display: print image to console if `TRUE`, defaults to `FALSE`.
 - output_img: path to save the output image
 
-| Before | After vibrance adjustments |
+| Before | After vibrance adjustment |
 | -- | -- |
 | ![](/tests/testthat/test_img/sharpen/cat_sharpen.png) | ![](/tests/testthat/test_img/vibrance/cat_vibrance.png) |
 
