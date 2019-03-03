@@ -4,12 +4,14 @@
 \alias{sharpen}
 \title{Sharpen}
 \usage{
-sharpen(input_img, intensity = 5, output_img)
+sharpen(input_img, intensity = 5, display = F, output_img = "")
 }
 \arguments{
 \item{input_img}{string, path of the input .png image}
 
 \item{intensity}{int, intensity of sharpness enhancement, between 0 and 10, defaults to 5}
+
+\item{display}{bool, if TRUE, output will be displayed. Defaults to FALSE.}
 
 \item{output_img}{string, path of the output .png image}
 }
@@ -17,8 +19,12 @@ sharpen(input_img, intensity = 5, output_img)
 a png image at the specificed out path
 }
 \description{
-Sharpen
+Sharpens an image with given intensity specification.
+This function will use the unsharp mask approach to sharpen images.
+Works by enhancing the edges of an image.
 }
 \examples{
-sharpen("./input.png", 5, "./output.png")
+\dontrun{
+sharpen("./input.png", 5, FALSE, "./output.png")
+}
 }

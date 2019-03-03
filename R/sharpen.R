@@ -1,10 +1,5 @@
-# Install EBImmage
-#if (!requireNamespace("BiocManager", quietly = TRUE))
-#  install.packages("BiocManager")
-#BiocManager::install("EBImage", version = "3.8")
-
-library(EBImage)
 library(png)
+library(mmand)
 library(testit)
 
 #' Sharpen
@@ -22,7 +17,9 @@ library(testit)
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' sharpen("./input.png", 5, FALSE, "./output.png")
+#' }
 
 sharpen <- function(input_img, intensity=5, display=F, output_img=""){
 
@@ -32,16 +29,16 @@ sharpen <- function(input_img, intensity=5, display=F, output_img=""){
   testit::assert("Please provide a valid string for the output image path.", is.character(output_img))
   testit::assert("Please provide an intensity value between 0 and 10.", intensity <= 10 & intensity >= 0)
 
-  # Read Img File
+  # load image
   im = png::readPNG(input_img)
 
   # scale pixel values from [0, 1] back to [0, 255]
   im <- im * 255
 
-  # Get Gauss
-  imblur <- gblur(im, sigma=1)
+  # blur image using Gaussian smoothing
+  imblur <- mmand::gaussianSmooth(im, 0.75)
 
-  # Get Sharpened Image
+  # obtain sharpened image
   im <- (intensity + 1) * im - intensity * imblur
   zeroes <- array(0,(dim(im)))
   im <- pmax(im, zeroes)

@@ -1,0 +1,45 @@
+---
+title: "sharpen()"
+author: "Mani Kohli"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `sharpen("./input.png", 5, FALSE, "./output.png")` function adjusts the sharpness of an image.
+
+Given a desired level of adjustment intensity, this function will use the unsharp mask approach to sharpen images. Specifically, this function works by enhancing the edges of an image.
+
+#### Arguments:
+
+- input_img: path to an input image
+- intensity: level of sharpness adjustment, between 0 and 10, defaults to 5.
+- display: print image to console if `TRUE`, defaults to `FALSE`.
+- output_img: path to save the output image
+
+#### Returns:
+
+- an image file with adjusted sharpness in specified output path.
+
+#### Image types currently supported:
+
+- .png
+
+#### Example:
+
+```
+sharpen(input_img="../img/image.png", 
+         intensity=5, 
+         display=FALSE, 
+         output_img="../img/sharpen_image.png")
+```
