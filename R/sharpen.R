@@ -22,7 +22,7 @@ library(testit)
 #' @export
 #'
 #' @examples
-#' sharpen("./input.png", 5, "./output.png")
+#' sharpen("./input.png", 5, FALSE, "./output.png")
 
 sharpen <- function(input_img, intensity=5, display=F, output_img=""){
 
