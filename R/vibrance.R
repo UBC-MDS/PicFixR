@@ -31,40 +31,28 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
   #getting dimensions
   height <- dim(img)[1]
-  width <- dim(img)[2]
+
+  #transposed matrix array to get in order of RGB
+  t_matrix <- aperm(img, c(3,2,1))
 
   #empty_array for output
   enhanced_img <- array(dim = dim(img))
 
-
-  #nested loop - can we make this more effecient?
-  for (i in 1:height) {
-    for (j in 1:width) {
-      R <- img[i,j,1]
-      G <- img[i,j,2]
-      B <- img[i,j,3]
-
-      mat <- matrix(c(R,G,B))
-
-      hsl <- plotwidgets::rgb2hsl(mat)
-
-      hsl[2] = hsl[2] * (1 + intensity/10)
-
-      if (hsl[2] > 1.0) {
-        hsl[2] = 0.9
-      } else {
-        hsl[2] = hsl[2]
-      }
-
-      rbg <- plotwidgets::hsl2rgb(hsl)
-
-      enhanced_img[i,j,1] = rbg[1]
-      enhanced_img[i,j,2] = rbg[2]
-      enhanced_img[i,j,3] = rbg[3]
-
-    }
+  #2 linear loops needed for vectorizing & changing to HSL format instead if
+  for (i in (1:height)) {
+    t_matrix[,,i] <- rgb2hsl(t_matrix[,,i])
   }
 
+  # adjusting intensity
+  t_matrix[2,,] <- t_matrix[2,,] * (1 + (intensity)/10)
+  t_matrix[2,,] <- ifelse(t_matrix[2,,] > 1.0, 0.1, t_matrix[2,,])
+
+  # returnin
+  for (i in (1:height)) {
+    t_matrix[,,i] <- hsl2rgb(t_matrix[,,i])
+  }
+
+  enhanced_img <- aperm(t_matrix, c(3, 2, 1))
   enhanced_img <- enhanced_img / 255
 
   # display or save enhanced image
