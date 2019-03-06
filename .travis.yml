@@ -1,0 +1,25 @@
+# .travis.yml for R projects
+
+language: r
+
+cache: packages
+sudo: false
+
+warnings_are_errors: false
+dist: trusty
+
+notifications:
+    on_success: never
+    on_failure: true
+
+r_packages:
+    - png
+    - testit
+    - mmand
+    - plotwidgets
+    
+addons:
+  apt:
+    packages:
+      - picfixR
+      
