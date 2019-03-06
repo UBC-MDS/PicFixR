@@ -1,7 +1,9 @@
 # picfixR
 
 #### A DSCI-524 collaborative software development project    
-  
+
+[![Build Status](https://travis-ci.org/ksm45/picfixR.svg?branch=master)](https://travis-ci.org/ksm45/picfixR)
+
 ## Project Overview
 
 Image enhancement is typically done with a full-scale editing software such as Adobe Photoshop or GIMP, but what if we just want to quickly touch up an image during prototyping in a programming environment? 
