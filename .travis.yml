@@ -1,13 +1,14 @@
-# .travis.yml for R projects
+# .travis.yml for picfixR
 
+# use r as catch-all language
 language: r
 
-cache: packages
+# use containers
 sudo: false
-
-warnings_are_errors: false
+cache: packages
 dist: trusty
 
+warnings_are_errors: false
 notifications:
     on_success: never
     on_failure: true
@@ -17,9 +18,7 @@ r_packages:
     - testit
     - mmand
     - plotwidgets
-    
-addons:
-  apt:
-    packages:
-      - picfixR
-      
+
+after_success:
+- Rscript -e 'covr::codecov()'
+
