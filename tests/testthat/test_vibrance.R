@@ -17,15 +17,15 @@ writePNG(test_img1 / 255, "test_img/vibrance/test_img1.png")
 
 # generate expected output image when intensity is 5
 
-expected_img1 <- array(c(c(14, 14, 14,
-                           15, 15, 15, # R channel
-                           5, 5, 5),
-                         c(62, 62, 62,
-                           62, 62, 62, # G channel
-                           98, 98, 98),
-                         c(242, 242, 242,
-                           242, 242, 242, # B channel
-                           7, 7, 7)),
+expected_img1 <- array(c(c(1, 1, 1,
+                           2, 2, 2, # R channel
+                           0, 0, 0),
+                         c(55, 55, 55,
+                           55, 55, 55, # G channel
+                           103, 103, 103),
+                         c(255, 255, 255,
+                           255, 255, 255, # B channel
+                           2, 2, 2)),
                        dim = c(3, 3, 3))
 
 #expected greyscale image with -10 intensity in vibrance()
@@ -52,7 +52,7 @@ test_that("vibrance of image is correctly enhanced", {
 
 # test for greyscale vibrance with intensity set to -10
 
-test_that("vibrance of image is correctly enhanced", {
+test_that("vibrance of image is correctly enhanced as greyscale", {
 
   vibrance("test_img/vibrance/test_img1.png", -10, F, "test_img/vibrance/vibrance.png")
   output_img <- readPNG("test_img/vibrance/vibrance.png") * 255

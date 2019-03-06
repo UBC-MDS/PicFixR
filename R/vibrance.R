@@ -40,16 +40,16 @@ vibrance <- function(input_img, intensity=5, display=F, output_img=""){
 
   #2 linear loops needed for vectorizing & changing to HSL format instead if
   for (i in (1:height)) {
-    t_matrix[,,i] <- rgb2hsl(t_matrix[,,i])
+    t_matrix[,,i] <- plotwidgets::rgb2hsl(t_matrix[,,i])
   }
 
   # adjusting intensity
   t_matrix[2,,] <- t_matrix[2,,] * (1 + (intensity)/10)
-  t_matrix[2,,] <- ifelse(t_matrix[2,,] > 1.0, 0.1, t_matrix[2,,])
+  t_matrix[2,,] <- ifelse(t_matrix[2,,] > 1.0, 1.0, t_matrix[2,,])
 
   # returnin
   for (i in (1:height)) {
-    t_matrix[,,i] <- hsl2rgb(t_matrix[,,i])
+    t_matrix[,,i] <- plotwidgets::hsl2rgb(t_matrix[,,i])
   }
 
   enhanced_img <- aperm(t_matrix, c(3, 2, 1))
