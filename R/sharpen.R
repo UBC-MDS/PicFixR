@@ -29,8 +29,11 @@ sharpen <- function(input_img, intensity=5, display=F, output_img=""){
   testit::assert("Please provide a valid string for the output image path.", is.character(output_img))
   testit::assert("Please provide an intensity value between 0 and 10.", intensity <= 10 & intensity >= 0)
 
-  # load image
-  im = png::readPNG(input_img)
+  # load image with exception handling
+  tryCatch(im <- png::readPNG(input_img),
+           error = function (e) {
+             stop("There is an error loading the image.")
+           })
 
   # scale pixel values from [0, 1] back to [0, 255]
   im <- im * 255
@@ -55,6 +58,9 @@ sharpen <- function(input_img, intensity=5, display=F, output_img=""){
   }
 
   if (output_img != "") {
-    png::writePNG(out_im, output_img)
+    tryCatch(png::writePNG(out_im, output_img),
+             error = function (e) {
+               stop("There is an error saving the image.")
+             })
   }
 }

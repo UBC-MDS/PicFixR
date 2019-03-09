@@ -2,7 +2,7 @@
 
 #### A DSCI-524 collaborative software development project    
 
-[![Build Status](https://travis-ci.org/UBC-MDS/picfixR.svg?branch=master)](https://travis-ci.org/UBC-MDS/picfixR)
+[![Build Status](https://travis-ci.org/UBC-MDS/picfixR.svg?branch=master)](https://travis-ci.org/UBC-MDS/picfixR) [![Coverage status](https://codecov.io/gh/UBC-MDS/picfixR/branch/master/graph/badge.svg)](https://codecov.io/github/UBC-MDS/picfixR?branch=master)
 
 ## Project Overview
 

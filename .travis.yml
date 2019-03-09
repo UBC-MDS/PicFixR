@@ -14,10 +14,11 @@ notifications:
     on_failure: true
 
 r_packages:
-    - png
-    - testit
-    - mmand
-    - plotwidgets
+  - png
+  - testit
+  - mmand
+  - plotwidgets
+  - covr
 
 after_success:
 - Rscript -e 'covr::codecov()'
