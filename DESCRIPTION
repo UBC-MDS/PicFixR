@@ -1,6 +1,6 @@
 Package: picfixR
 Title: Quick image enhancements in a programming environment
-Version: 0.1
+Version: 0.4
 Authors@R: as.person(c(
   "George Wu <georgewujia@gmail.com> [aut, cre]",
   "Miliban Keyim <milibankeyim@gmail.com> [aut]",
@@ -13,7 +13,8 @@ RoxygenNote: 6.1.1
 Suggests:
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
 Imports: 
     png,
     testit,
